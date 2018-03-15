@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="liftlog:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/liftlog_jar</output-path>
+    <root id="archive" name="liftlog.jar">
+      <element id="module-output" name="liftlog" />
+      <element id="extracted-dir" path="$USER_HOME$/DB/mysql-connector-java-5.1.45/mysql-connector-java-5.1.45-bin.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

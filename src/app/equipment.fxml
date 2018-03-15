@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.EquipmentController">
+   <children>
+      <TableView fx:id="table" layoutX="177.0" layoutY="44.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="404.0" prefWidth="460.0">
+        <columns>
+            <TableColumn fx:id="col_name" minWidth="0.0" prefWidth="180.0" text="name" />
+          <TableColumn fx:id="col_description" minWidth="100.0" prefWidth="280.0" text="description" />
+      
+                    </columns>
+      </TableView>
+      <Button fx:id="addEquipmentButton" layoutX="350.0" layoutY="479.0" mnemonicParsing="false" onAction="#addEquipment" text="Add Equipment" />
+   </children>
+</AnchorPane>
