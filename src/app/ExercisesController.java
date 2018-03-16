@@ -47,9 +47,9 @@ public class ExercisesController implements Initializable{
     @FXML
     TableColumn<equipmentExerciseModel,String>  col_equipmentExerciseEquipment;
 
-    ObservableList<regularExerciseModel> regularExerciseObservableList = FXCollections.observableArrayList();
-    ObservableList<equipmentExerciseModel> equipmentExerciseObservableList = FXCollections.observableArrayList();
-    ObservableList<equipmentModel> equipmentObservableList = FXCollections.observableArrayList();
+    private ObservableList<regularExerciseModel> regularExerciseObservableList = FXCollections.observableArrayList();
+    private ObservableList<equipmentExerciseModel> equipmentExerciseObservableList = FXCollections.observableArrayList();
+    private ObservableList<equipmentModel> equipmentObservableList = FXCollections.observableArrayList();
 
 
     public void addRegularExerciseButtonPressed() throws IOException {
@@ -112,6 +112,7 @@ public class ExercisesController implements Initializable{
                 stm2.setInt(1, exerciseID);
                 stm2.setString(2, pair.getValue());
                 stm2.execute();
+                stm2.close();
 
                 System.out.println("Inserted: " + pair.getKey() + " into Regular_Exercise table" + " with description: " + pair.getValue());
 
