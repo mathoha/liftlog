@@ -12,6 +12,11 @@ public class regularExerciseModel {
 
     }
 
+    public regularExerciseModel(int exerciseID,String name) {
+        this.exerciseID = exerciseID;
+        this.name = name;
+    }
+
     public int getExerciseID() {
         return exerciseID;
     }

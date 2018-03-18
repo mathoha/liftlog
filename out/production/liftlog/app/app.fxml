@@ -15,6 +15,7 @@
             <Button fx:id="newWorkout" alignment="CENTER" mnemonicParsing="false" onAction="#goToNewWorkout" prefHeight="100.0" prefWidth="120.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="New workout" textAlignment="CENTER" />
                 <Button fx:id="workouts" alignment="CENTER" mnemonicParsing="false" onAction="#goToWorkouts" prefHeight="100.0" prefWidth="120.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Workout log" textAlignment="CENTER" />
                 <Button fx:id="exercises" alignment="CENTER" mnemonicParsing="false" onAction="#goToExercises" prefHeight="100.0" prefWidth="120.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Exercises" textAlignment="CENTER" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToExerciseGroups" prefHeight="100.0" prefWidth="120.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Exercise Groups" textAlignment="CENTER" wrapText="true" />
                 <Button fx:id="equipment" alignment="CENTER" mnemonicParsing="false" onAction="#goToEquipment" prefHeight="100.0" prefWidth="120.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Equipment" textAlignment="CENTER" />
             </children>
         </VBox>

@@ -2,6 +2,7 @@ package app;
 
 import app.models.equipmentExerciseModel;
 import app.models.equipmentModel;
+import app.models.exerciseGroupModel;
 import app.models.regularExerciseModel;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -50,6 +51,7 @@ public class ExercisesController implements Initializable{
     private ObservableList<regularExerciseModel> regularExerciseObservableList = FXCollections.observableArrayList();
     private ObservableList<equipmentExerciseModel> equipmentExerciseObservableList = FXCollections.observableArrayList();
     private ObservableList<equipmentModel> equipmentObservableList = FXCollections.observableArrayList();
+    private ObservableList<exerciseGroupModel> exerciseGroupObservableList = FXCollections.observableArrayList();
 
 
     public void addRegularExerciseButtonPressed() throws IOException {
@@ -70,10 +72,34 @@ public class ExercisesController implements Initializable{
         description.setWrapText(true);
         description.setMaxWidth(250);
 
+        ComboBox<exerciseGroupModel> exerciseGroupComboBox = new ComboBox<>();
+        exerciseGroupComboBox.setItems(exerciseGroupObservableList);
+
+        //need override toString method to list the name of the equipment in the dropdown while getting the exerciseID as the value.
+        StringConverter<exerciseGroupModel> groupConverter = new StringConverter<exerciseGroupModel>() {
+            @Override
+            public String toString(exerciseGroupModel object) {
+                return object.getExerciseGroupName();
+            }
+
+            @Override
+            public exerciseGroupModel fromString(String groupID) {
+                return exerciseGroupObservableList.stream()
+                        .filter(item -> item.getExerciseGroupName().equals(groupID))
+                        .collect(Collectors.toList()).get(0);
+            }
+        };
+
+        exerciseGroupComboBox.setConverter(groupConverter);
+
+
+
         gridPane.add(new Label("Name:"), 1, 0);
         gridPane.add(name, 1, 1);
         gridPane.add(new Label("Description:"), 1, 2);
         gridPane.add(description, 1, 3);
+        gridPane.add(new Label("Group:"),1, 4);
+        gridPane.add(exerciseGroupComboBox,1, 5);
 
         dialog.getDialogPane().setContent(gridPane);
 
@@ -98,8 +124,9 @@ public class ExercisesController implements Initializable{
 
             try {
                 Connection con = DBConnector.getConnection();
-                PreparedStatement stm = con.prepareStatement("INSERT INTO Exercise (name) VALUES(?)", Statement.RETURN_GENERATED_KEYS);
+                PreparedStatement stm = con.prepareStatement("INSERT INTO Exercise (name, type) VALUES(?,?)", Statement.RETURN_GENERATED_KEYS);
                 stm.setString(1, pair.getKey());
+                stm.setString(2, "regular");
                 stm.execute();
 
                 ResultSet rs = stm.getGeneratedKeys();
@@ -115,6 +142,18 @@ public class ExercisesController implements Initializable{
                 stm2.close();
 
                 System.out.println("Inserted: " + pair.getKey() + " into Regular_Exercise table" + " with description: " + pair.getValue());
+
+                //insert into exerciseInGroup is group is selected:
+                if (! exerciseGroupComboBox.getSelectionModel().isEmpty()){
+                    PreparedStatement stm3 = con.prepareStatement("INSERT INTO Exercise_In_Group (exerciseID, groupID) VALUES(?,?)");
+                    stm3.setInt(1, exerciseID);
+                    stm3.setInt(2, exerciseGroupComboBox.getValue().getExerciseGroupID());
+                    stm3.execute();
+                    stm3.close();
+                    System.out.println("Inserted exercise with ID: " + exerciseID + " into Exercise group " + exerciseGroupComboBox.getValue().getExerciseGroupName());
+                }
+
+                con.close();
 
                 refreshRegularExerciseTable();
 
@@ -141,6 +180,9 @@ public class ExercisesController implements Initializable{
         TextField name = new TextField();
         ComboBox<equipmentModel> equipmentComboBox = new ComboBox<>();
         equipmentComboBox.setItems(equipmentObservableList);
+        ComboBox<exerciseGroupModel> exerciseGroupComboBox = new ComboBox<>();
+        exerciseGroupComboBox.setItems(exerciseGroupObservableList);
+
 
 
 
@@ -161,18 +203,36 @@ public class ExercisesController implements Initializable{
 
         equipmentComboBox.setConverter(converter);
 
+        //need override toString method to list the name of the equipment in the dropdown while getting the exerciseID as the value.
+        StringConverter<exerciseGroupModel> groupConverter = new StringConverter<exerciseGroupModel>() {
+            @Override
+            public String toString(exerciseGroupModel object) {
+                return object.getExerciseGroupName();
+            }
+
+            @Override
+            public exerciseGroupModel fromString(String groupID) {
+                return exerciseGroupObservableList.stream()
+                        .filter(item -> item.getExerciseGroupName().equals(groupID))
+                        .collect(Collectors.toList()).get(0);
+            }
+        };
+
+        exerciseGroupComboBox.setConverter(groupConverter);
+
 
         gridPane.add(new Label("Name:"), 1, 0);
         gridPane.add(name, 1, 1);
         gridPane.add(new Label("Equipment:"), 1, 2);
         gridPane.add(equipmentComboBox, 1, 3);
+        gridPane.add(new Label("Group:"), 1, 4);
+        gridPane.add(exerciseGroupComboBox, 1, 5);
 
         dialog.getDialogPane().setContent(gridPane);
 
-        // Request focus on the username field by default.
+        // Request focus on the name field by default.
         Platform.runLater(() -> name.requestFocus());
 
-        // Convert the result to a username-password-pair when the login button is clicked.
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == okButton) {
                 if(! name.getText().isEmpty() && ! equipmentComboBox.getSelectionModel().isEmpty()){
@@ -183,15 +243,17 @@ public class ExercisesController implements Initializable{
             return null;
         });
 
+
+
         Optional<Pair<String, String>> result = dialog.showAndWait();
 
         result.ifPresent(pair -> {
-            System.out.println("From=" + pair.getKey() + ", To=" + pair.getValue());
 
             try {
                 Connection con = DBConnector.getConnection();
-                PreparedStatement stm = con.prepareStatement("INSERT INTO Exercise (name) VALUES(?)", Statement.RETURN_GENERATED_KEYS);
+                PreparedStatement stm = con.prepareStatement("INSERT INTO Exercise (name, type) VALUES(?,?)", Statement.RETURN_GENERATED_KEYS);
                 stm.setString(1, pair.getKey());
+                stm.setString(2, "equipment");
                 stm.execute();
 
                 ResultSet rs = stm.getGeneratedKeys();
@@ -204,15 +266,29 @@ public class ExercisesController implements Initializable{
                 stm2.setInt(1, exerciseID);
                 stm2.setString(2, pair.getValue());
                 stm2.execute();
+                stm2.close();
 
                 System.out.println("Inserted: " + pair.getKey() + " into Equipment_Exercise table" + " with equipmentID: " + pair.getValue());
 
                 refreshEquipmentExerciseTable();
 
+                //insert into exerciseInGroup is group is selected:
+                if (! exerciseGroupComboBox.getSelectionModel().isEmpty()){
+                    PreparedStatement stm3 = con.prepareStatement("INSERT INTO Exercise_In_Group (exerciseID, groupID) VALUES(?,?)");
+                    stm3.setInt(1, exerciseID);
+                    stm3.setInt(2, exerciseGroupComboBox.getValue().getExerciseGroupID());
+                    stm3.execute();
+                    stm3.close();
+                    System.out.println("Inserted exercise with ID: " + exerciseID + " into Exercise group " + exerciseGroupComboBox.getValue().getExerciseGroupName());
+                }
 
+                con.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+
+
+
         });
     }
 
@@ -405,6 +481,18 @@ public class ExercisesController implements Initializable{
             ResultSet rs = con.createStatement().executeQuery("select equipmentID, name, description from Equipment");
             while (rs.next()){
                 equipmentObservableList.add(new equipmentModel(rs.getString("equipmentID"),rs.getString("name"),rs.getString("description")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        //load exerciseGroup list from database
+        try {
+            Connection con = DBConnector.getConnection();
+
+            ResultSet rs = con.createStatement().executeQuery("select groupID, name from Exercise_Group");
+            while (rs.next()){
+                exerciseGroupObservableList.add(new exerciseGroupModel(rs.getInt("groupID"),rs.getString("name")));
             }
         } catch (SQLException e) {
             e.printStackTrace();

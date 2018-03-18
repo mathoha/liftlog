@@ -1,16 +1,19 @@
 package app;
 
 
-import app.models.equipmentModel;
 import app.models.workoutModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -27,6 +30,11 @@ public class WorkoutsController implements Initializable{
     @FXML private TableColumn<workoutModel,String> col_note;
 
     ObservableList<workoutModel> workoutsObservableList = FXCollections.observableArrayList();
+
+    public workoutModel selectedWorkout;
+
+    public void enterExistingWorkout() throws IOException {
+    }
 
 
     @Override

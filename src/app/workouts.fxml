@@ -3,13 +3,13 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 
-<TableView fx:id="workoutsTableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.WorkoutsController">
+<TableView fx:id="workoutsTableView" editable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.WorkoutsController">
   <columns>
-    <TableColumn fx:id="col_date" prefWidth="94.0" text="date" />
-      <TableColumn fx:id="col_time" prefWidth="85.0" text="time" />
-      <TableColumn fx:id="col_duration" prefWidth="71.0" text="duration" />
-      <TableColumn fx:id="col_shape" prefWidth="68.0" text="shape" />
-      <TableColumn fx:id="col_performance" prefWidth="107.0" text="performance" />
-      <TableColumn fx:id="col_note" prefWidth="453.0" text="note" />
+    <TableColumn fx:id="col_date" onEditStart="#enterExistingWorkout" prefWidth="94.0" text="date" />
+      <TableColumn fx:id="col_time" onEditStart="#enterExistingWorkout" prefWidth="85.0" text="time" />
+      <TableColumn fx:id="col_duration" onEditStart="#enterExistingWorkout" prefWidth="71.0" text="duration" />
+      <TableColumn fx:id="col_shape" onEditStart="#enterExistingWorkout" prefWidth="68.0" text="shape" />
+      <TableColumn fx:id="col_performance" onEditStart="#enterExistingWorkout" prefWidth="107.0" text="performance" />
+      <TableColumn fx:id="col_note" onEditStart="#enterExistingWorkout" prefWidth="453.0" text="note" />
   </columns>
 </TableView>

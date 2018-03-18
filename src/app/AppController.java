@@ -23,7 +23,7 @@ public class AppController implements Initializable{
     @FXML private Label currentSceneLabel;
 
 
-    @FXML private BorderPane borderPane;
+    @FXML public BorderPane borderPane;
 
 
     public void goToNewWorkout(ActionEvent event) throws IOException {
@@ -39,12 +39,27 @@ public class AppController implements Initializable{
 
     }
 
+    public void goToExistingWorkout() throws IOException {
+        Parent existingWorkoutView = FXMLLoader.load(getClass().getResource("existingWorkout.fxml"));
+        borderPane.setCenter(existingWorkoutView);
+        currentSceneLabel.setText("Edit Workout");
+
+    }
+
     public void goToExercises(ActionEvent event) throws IOException {
         Parent exercisesView = FXMLLoader.load(getClass().getResource("exercises.fxml"));
         borderPane.setCenter(exercisesView);
         currentSceneLabel.setText("Exercises");
 
     }
+
+    public void goToExerciseGroups(ActionEvent event) throws IOException {
+        Parent exerciseGroupView = FXMLLoader.load(getClass().getResource("exerciseGroups.fxml"));
+        borderPane.setCenter(exerciseGroupView);
+        currentSceneLabel.setText("Exercise Groups");
+
+    }
+
 
     public void goToEquipment(ActionEvent event) throws IOException {
         Parent equipmentView = FXMLLoader.load(getClass().getResource("equipment.fxml"));

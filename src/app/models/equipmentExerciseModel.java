@@ -13,6 +13,11 @@ public class equipmentExerciseModel {
 
     }
 
+    public equipmentExerciseModel(int exerciseID,String exercise_name) {
+        this.exerciseID = exerciseID;
+        this.exercise_name = exercise_name;
+    }
+
     public int getExerciseID() {
         return exerciseID;
     }
