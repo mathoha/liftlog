@@ -10,34 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/app/ExerciseGroupsController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/app/ExistingWorkoutController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/app/exerciseGroups.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/app/existingWorkout.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/app/models/exerciseGroupModel.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/app/models/exerciseInGroupModel.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/app/models/exerciseModel.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/app/models/regularExerciseInWorkoutModel.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/AppController.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/AppController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/ExercisesController$1.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/ExercisesController$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/ExercisesController.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/ExercisesController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/NewWorkoutController$2.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/NewWorkoutController$2.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/NewWorkoutController$3.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/NewWorkoutController$3.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/NewWorkoutController.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/NewWorkoutController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/app.fxml" afterPath="$PROJECT_DIR$/out/production/liftlog/app/app.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/models/equipmentExerciseModel.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/models/equipmentExerciseModel.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/models/exerciseInWorkoutModel.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/models/exerciseInWorkoutModel.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/models/regularExerciseModel.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/models/regularExerciseModel.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/newWorkout.fxml" afterPath="$PROJECT_DIR$/out/production/liftlog/app/newWorkout.fxml" />
       <change beforePath="$PROJECT_DIR$/src/app/AppController.java" afterPath="$PROJECT_DIR$/src/app/AppController.java" />
       <change beforePath="$PROJECT_DIR$/src/app/ExercisesController.java" afterPath="$PROJECT_DIR$/src/app/ExercisesController.java" />
       <change beforePath="$PROJECT_DIR$/src/app/NewWorkoutController.java" afterPath="$PROJECT_DIR$/src/app/NewWorkoutController.java" />
       <change beforePath="$PROJECT_DIR$/src/app/WorkoutsController.java" afterPath="$PROJECT_DIR$/src/app/WorkoutsController.java" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.fxml" afterPath="$PROJECT_DIR$/src/app/app.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/app/models/equipmentExerciseModel.java" afterPath="$PROJECT_DIR$/src/app/models/equipmentExerciseModel.java" />
-      <change beforePath="$PROJECT_DIR$/src/app/models/exerciseInWorkoutModel.java" afterPath="$PROJECT_DIR$/src/app/models/exerciseInWorkoutModel.java" />
-      <change beforePath="$PROJECT_DIR$/src/app/models/regularExerciseModel.java" afterPath="$PROJECT_DIR$/src/app/models/regularExerciseModel.java" />
       <change beforePath="$PROJECT_DIR$/src/app/newWorkout.fxml" afterPath="$PROJECT_DIR$/src/app/newWorkout.fxml" />
       <change beforePath="$PROJECT_DIR$/src/app/workouts.fxml" afterPath="$PROJECT_DIR$/src/app/workouts.fxml" />
     </list>
@@ -102,15 +79,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ExerciseGroupsController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/ExerciseGroupsController.java">
+      <file leaf-file-name="WorkoutsController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/WorkoutsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3204">
-              <caret line="199" column="54" lean-forward="false" selection-start-line="199" selection-start-column="54" selection-end-line="199" selection-end-column="54" />
+            <state relative-caret-position="338">
+              <caret line="625" column="64" lean-forward="true" selection-start-line="625" selection-start-column="64" selection-end-line="625" selection-end-column="64" />
               <folding>
-                <element signature="e#7710#7711#0" expanded="true" />
-                <element signature="e#7765#7766#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#16901#17405#0" expanded="true" />
+                <element signature="e#17404#17405#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FXMLLoader.java" pinned="false" current-in-tab="false">
+        <entry file="jar:///usr/lib/jvm/java-8-oracle/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="3096" column="0" lean-forward="false" selection-start-line="3096" selection-start-column="0" selection-end-line="3096" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -118,36 +106,58 @@
       <file leaf-file-name="NewWorkoutController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/NewWorkoutController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1320">
-              <caret line="540" column="0" lean-forward="false" selection-start-line="540" selection-start-column="0" selection-end-line="540" selection-end-column="0" />
+            <state relative-caret-position="716">
+              <caret line="413" column="13" lean-forward="true" selection-start-line="399" selection-start-column="12" selection-end-line="413" selection-end-column="13" />
               <folding>
-                <element signature="e#6604#7109#0" expanded="true" />
-                <element signature="e#7108#7109#0" expanded="true" />
-                <element signature="e#10502#10966#0" expanded="true" />
-                <element signature="e#10965#10966#0" expanded="true" />
-                <element signature="e#13975#14480#0" expanded="true" />
-                <element signature="e#14479#14480#0" expanded="true" />
-                <element signature="e#14623#15087#0" expanded="true" />
-                <element signature="e#15086#15087#0" expanded="true" />
-                <element signature="e#18006#18427#0" expanded="true" />
-                <element signature="e#18426#18427#0" expanded="true" />
-                <element signature="e#21530#21952#0" expanded="true" />
-                <element signature="e#21951#21952#0" expanded="true" />
-                <element signature="e#22594#23003#0" expanded="true" />
-                <element signature="e#23002#23003#0" expanded="true" />
+                <element signature="e#14380#14884#0" expanded="true" />
+                <element signature="e#14883#14884#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WorkoutsController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/WorkoutsController.java">
+      <file leaf-file-name="newWorkout.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/newWorkout.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="35" column="59" lean-forward="false" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="2070">
+              <caret line="115" column="76" lean-forward="false" selection-start-line="115" selection-start-column="76" selection-end-line="115" selection-end-column="76" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addEquipment.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/addEquipment.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddEquipmentController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/AddEquipmentController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="576">
+              <caret line="39" column="36" lean-forward="true" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExercisesController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/ExercisesController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="376" column="38" lean-forward="true" selection-start-line="376" selection-start-column="38" selection-end-line="376" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -155,31 +165,8 @@
       <file leaf-file-name="AppController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/AppController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="35" column="87" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="87" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="15" column="28" lean-forward="false" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="existingWorkout.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/existingWorkout.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="170" lean-forward="false" selection-start-line="17" selection-start-column="170" selection-end-line="17" selection-end-column="170" />
+            <state relative-caret-position="228">
+              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -188,65 +175,9 @@
       <file leaf-file-name="ExistingWorkoutController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/ExistingWorkoutController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-170">
-              <caret line="453" column="0" lean-forward="true" selection-start-line="453" selection-start-column="0" selection-end-line="453" selection-end-column="0" />
+            <state relative-caret-position="888">
+              <caret line="534" column="5" lean-forward="true" selection-start-line="445" selection-start-column="0" selection-end-line="534" selection-end-column="5" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="equipmentExerciseInWorkoutModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/models/equipmentExerciseInWorkoutModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="regularExerciseInWorkoutModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/models/regularExerciseInWorkoutModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-              <folding>
-                <element signature="e#479#480#0" expanded="true" />
-                <element signature="e#511#512#0" expanded="true" />
-                <element signature="e#558#559#0" expanded="true" />
-                <element signature="e#600#601#0" expanded="true" />
-                <element signature="e#634#635#0" expanded="true" />
-                <element signature="e#667#668#0" expanded="true" />
-                <element signature="e#716#717#0" expanded="true" />
-                <element signature="e#760#761#0" expanded="true" />
-                <element signature="e#799#800#0" expanded="true" />
-                <element signature="e#834#835#0" expanded="true" />
-                <element signature="e#890#891#0" expanded="true" />
-                <element signature="e#938#939#0" expanded="true" />
-                <element signature="e#972#973#0" expanded="true" />
-                <element signature="e#1002#1003#0" expanded="true" />
-                <element signature="e#1052#1053#0" expanded="true" />
-                <element signature="e#1094#1095#0" expanded="true" />
-                <element signature="e#1124#1125#0" expanded="true" />
-                <element signature="e#1153#1154#0" expanded="true" />
-                <element signature="e#1194#1195#0" expanded="true" />
-                <element signature="e#1230#1231#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="exerciseInWorkoutModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/models/exerciseInWorkoutModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-              <folding>
-                <element signature="e#1037#1038#0" expanded="true" />
-                <element signature="e#1064#1065#0" expanded="true" />
-                <element signature="e#1104#1105#0" expanded="true" />
-                <element signature="e#1136#1137#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -263,20 +194,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>reg</find>
-      <find>shapespinner</find>
-      <find>getkey</find>
       <find>selec</find>
       <find>setEd</find>
       <find>query</find>
       <find>dialog</find>
-      <find>delete</find>
       <find>addeq</find>
-      <find>load</find>
       <find>combo</find>
       <find>type</find>
       <find>check</find>
       <find>editButt</find>
+      <find>regularExerciseTable</find>
+      <find>col_regularExerciseName</find>
+      <find>edit</find>
+      <find>saveb</find>
+      <find>add</find>
+      <find>exerciseInWorkoutList</find>
+      <find>selectedExerciseInWorkout</find>
+      <find>selectedEquipmentExerciseObservableList</find>
+      <find>selectedEx</find>
+      <find>setCount</find>
+      <find>delete</find>
+      <find>System.out.println(&quot;eq: &quot; + selectedEquipmentExercise.getExercise_name());</find>
+      <find>setC</find>
+      <find>Delete</find>
+      <find>durationSpinner</find>
+      <find>load</find>
+      <find>loadWorkoutsFromDB</find>
+      <find>refres</find>
+      <find>nSpinn</find>
+      <find>nW</find>
+      <find>nWorkoutsS</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -324,15 +271,15 @@
         <option value="$PROJECT_DIR$/src/app/models/reguarlExerciseInWorkoutModel.java" />
         <option value="$PROJECT_DIR$/src/app/models/regularExerciseInWorkoutModel.java" />
         <option value="$PROJECT_DIR$/src/app/models/regularExerciseModel.java" />
-        <option value="$PROJECT_DIR$/src/app/ExercisesController.java" />
         <option value="$PROJECT_DIR$/src/app/models/exerciseInWorkoutModel.java" />
         <option value="$PROJECT_DIR$/src/app/models/exerciseModel.java" />
         <option value="$PROJECT_DIR$/src/app/ExerciseGroupsController.java" />
-        <option value="$PROJECT_DIR$/src/app/NewWorkoutController.java" />
         <option value="$PROJECT_DIR$/src/app/existingWorkout.fxml" />
         <option value="$PROJECT_DIR$/src/app/ExistingWorkoutController.java" />
         <option value="$PROJECT_DIR$/src/app/Main.java" />
         <option value="$PROJECT_DIR$/src/app/AppController.java" />
+        <option value="$PROJECT_DIR$/src/app/ExercisesController.java" />
+        <option value="$PROJECT_DIR$/src/app/NewWorkoutController.java" />
         <option value="$PROJECT_DIR$/src/app/WorkoutsController.java" />
       </list>
     </option>
@@ -363,9 +310,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -395,7 +339,10 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -587,7 +534,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969034" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969034" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -669,17 +616,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/equipment.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/models/equipmentModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -727,7 +663,7 @@
         <state relative-caret-position="144">
           <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -806,15 +742,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3002#3003#0" expanded="false" />
-            <element signature="e#3070#3071#0" expanded="false" />
-            <element signature="e#7617#7618#0" expanded="false" />
-            <element signature="e#7671#7672#0" expanded="false" />
-            <element signature="e#8355#8356#0" expanded="false" />
-            <element signature="e#8423#8424#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -845,6 +773,8 @@
           <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#16901#17405#0" expanded="true" />
+            <element signature="e#17404#17405#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -854,7 +784,7 @@
         <state relative-caret-position="144">
           <caret line="10" column="26" lean-forward="true" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -890,30 +820,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="7" column="32" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3002#3003#0" expanded="false" />
-            <element signature="e#3070#3071#0" expanded="false" />
-            <element signature="e#7617#7618#0" expanded="false" />
-            <element signature="e#7671#7672#0" expanded="false" />
-            <element signature="e#8355#8356#0" expanded="false" />
-            <element signature="e#8423#8424#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EquipmentController.java" />
-    <entry file="file://$PROJECT_DIR$/src/app/equipment.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/EquipmentController.java" />
     <entry file="file://$PROJECT_DIR$/src/app/workouts.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -991,16 +902,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/EquipmentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="846">
-          <caret line="66" column="9" lean-forward="false" selection-start-line="57" selection-start-column="8" selection-end-line="66" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/models/equipmentModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -1019,14 +920,6 @@
             <element signature="e#632#633#0" expanded="false" />
             <element signature="e#678#679#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/AddEquipmentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="40" column="13" lean-forward="true" selection-start-line="22" selection-start-column="12" selection-end-line="40" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1055,17 +948,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/addEquipment.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/models/exerciseGroupModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -1086,7 +968,7 @@
         <state relative-caret-position="180">
           <caret line="10" column="26" lean-forward="true" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1110,33 +992,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/newWorkout.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2070">
-          <caret line="115" column="76" lean-forward="false" selection-start-line="115" selection-start-column="76" selection-end-line="115" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/ExercisesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1710">
-          <caret line="122" column="84" lean-forward="false" selection-start-line="122" selection-start-column="84" selection-end-line="122" selection-end-column="84" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3002#3003#0" expanded="false" />
-            <element signature="e#3070#3071#0" expanded="false" />
-            <element signature="e#7617#7618#0" expanded="false" />
-            <element signature="e#7671#7672#0" expanded="false" />
-            <element signature="e#8355#8356#0" expanded="false" />
-            <element signature="e#8423#8424#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/models/equipmentExerciseModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1150,10 +1005,10 @@
         <state relative-caret-position="378">
           <caret line="31" column="5" lean-forward="false" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
           <folding>
-            <element signature="e#594#595#0" expanded="true" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#661#662#0" expanded="true" />
-            <element signature="e#693#694#0" expanded="true" />
+            <element signature="e#594#595#0" expanded="false" />
+            <element signature="e#621#622#0" expanded="false" />
+            <element signature="e#661#662#0" expanded="false" />
+            <element signature="e#693#694#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1163,10 +1018,10 @@
         <state relative-caret-position="558">
           <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding>
-            <element signature="e#1037#1038#0" expanded="true" />
-            <element signature="e#1064#1065#0" expanded="true" />
-            <element signature="e#1104#1105#0" expanded="true" />
-            <element signature="e#1136#1137#0" expanded="true" />
+            <element signature="e#1037#1038#0" expanded="false" />
+            <element signature="e#1064#1065#0" expanded="false" />
+            <element signature="e#1104#1105#0" expanded="false" />
+            <element signature="e#1136#1137#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1176,26 +1031,26 @@
         <state relative-caret-position="270">
           <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
           <folding>
-            <element signature="e#479#480#0" expanded="true" />
-            <element signature="e#511#512#0" expanded="true" />
-            <element signature="e#558#559#0" expanded="true" />
-            <element signature="e#600#601#0" expanded="true" />
-            <element signature="e#634#635#0" expanded="true" />
-            <element signature="e#667#668#0" expanded="true" />
-            <element signature="e#716#717#0" expanded="true" />
-            <element signature="e#760#761#0" expanded="true" />
-            <element signature="e#799#800#0" expanded="true" />
-            <element signature="e#834#835#0" expanded="true" />
-            <element signature="e#890#891#0" expanded="true" />
-            <element signature="e#938#939#0" expanded="true" />
-            <element signature="e#972#973#0" expanded="true" />
-            <element signature="e#1002#1003#0" expanded="true" />
-            <element signature="e#1052#1053#0" expanded="true" />
-            <element signature="e#1094#1095#0" expanded="true" />
-            <element signature="e#1124#1125#0" expanded="true" />
-            <element signature="e#1153#1154#0" expanded="true" />
-            <element signature="e#1194#1195#0" expanded="true" />
-            <element signature="e#1230#1231#0" expanded="true" />
+            <element signature="e#479#480#0" expanded="false" />
+            <element signature="e#511#512#0" expanded="false" />
+            <element signature="e#558#559#0" expanded="false" />
+            <element signature="e#600#601#0" expanded="false" />
+            <element signature="e#634#635#0" expanded="false" />
+            <element signature="e#667#668#0" expanded="false" />
+            <element signature="e#716#717#0" expanded="false" />
+            <element signature="e#760#761#0" expanded="false" />
+            <element signature="e#799#800#0" expanded="false" />
+            <element signature="e#834#835#0" expanded="false" />
+            <element signature="e#890#891#0" expanded="false" />
+            <element signature="e#938#939#0" expanded="false" />
+            <element signature="e#972#973#0" expanded="false" />
+            <element signature="e#1002#1003#0" expanded="false" />
+            <element signature="e#1052#1053#0" expanded="false" />
+            <element signature="e#1094#1095#0" expanded="false" />
+            <element signature="e#1124#1125#0" expanded="false" />
+            <element signature="e#1153#1154#0" expanded="false" />
+            <element signature="e#1194#1195#0" expanded="false" />
+            <element signature="e#1230#1231#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1208,29 +1063,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/ExerciseGroupsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3204">
-          <caret line="199" column="54" lean-forward="false" selection-start-line="199" selection-start-column="54" selection-end-line="199" selection-end-column="54" />
-          <folding>
-            <element signature="e#7710#7711#0" expanded="true" />
-            <element signature="e#7765#7766#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="15" column="28" lean-forward="false" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/ExistingWorkoutController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-170">
-          <caret line="453" column="0" lean-forward="true" selection-start-line="453" selection-start-column="0" selection-end-line="453" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1246,43 +1082,117 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/NewWorkoutController.java">
+    <entry file="file://$PROJECT_DIR$/src/app/EquipmentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="540" column="0" lean-forward="false" selection-start-line="540" selection-start-column="0" selection-end-line="540" selection-end-column="0" />
+        <state relative-caret-position="684">
+          <caret line="57" column="13" lean-forward="true" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/addEquipment.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/AddEquipmentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="39" column="36" lean-forward="true" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/ExerciseGroupsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="199" column="54" lean-forward="false" selection-start-line="199" selection-start-column="54" selection-end-line="199" selection-end-column="54" />
           <folding>
-            <element signature="e#6604#7109#0" expanded="true" />
-            <element signature="e#7108#7109#0" expanded="true" />
-            <element signature="e#10502#10966#0" expanded="true" />
-            <element signature="e#10965#10966#0" expanded="true" />
-            <element signature="e#13975#14480#0" expanded="true" />
-            <element signature="e#14479#14480#0" expanded="true" />
-            <element signature="e#14623#15087#0" expanded="true" />
-            <element signature="e#15086#15087#0" expanded="true" />
-            <element signature="e#18006#18427#0" expanded="true" />
-            <element signature="e#18426#18427#0" expanded="true" />
-            <element signature="e#21530#21952#0" expanded="true" />
-            <element signature="e#21951#21952#0" expanded="true" />
-            <element signature="e#22594#23003#0" expanded="true" />
-            <element signature="e#23002#23003#0" expanded="true" />
+            <element signature="e#7710#7711#0" expanded="false" />
+            <element signature="e#7765#7766#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/ExistingWorkoutController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="888">
+          <caret line="534" column="5" lean-forward="true" selection-start-line="445" selection-start-column="0" selection-end-line="534" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/equipment.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/ExercisesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="376" column="38" lean-forward="true" selection-start-line="376" selection-start-column="38" selection-end-line="376" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/AppController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="35" column="87" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="87" />
+        <state relative-caret-position="228">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="3096" column="0" lean-forward="false" selection-start-line="3096" selection-start-column="0" selection-end-line="3096" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/newWorkout.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2070">
+          <caret line="115" column="76" lean-forward="false" selection-start-line="115" selection-start-column="76" selection-end-line="115" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/NewWorkoutController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="716">
+          <caret line="413" column="13" lean-forward="true" selection-start-line="399" selection-start-column="12" selection-end-line="413" selection-end-column="13" />
+          <folding>
+            <element signature="e#14380#14884#0" expanded="true" />
+            <element signature="e#14883#14884#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/WorkoutsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="35" column="59" lean-forward="false" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
+        <state relative-caret-position="338">
+          <caret line="625" column="64" lean-forward="true" selection-start-line="625" selection-start-column="64" selection-end-line="625" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#16901#17405#0" expanded="true" />
+            <element signature="e#17404#17405#0" expanded="true" />
           </folding>
         </state>
       </provider>

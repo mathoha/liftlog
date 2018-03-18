@@ -373,7 +373,7 @@ public class ExercisesController implements Initializable{
     private void deleteExercise(int exerciseID) {
         try {
             Connection con = DBConnector.getConnection();
-            PreparedStatement stm = con.prepareStatement("DELETE FROM Exercise WHERE ExerciseID = ?");
+            PreparedStatement stm = con.prepareStatement("DELETE FROM Exercise WHERE exerciseID = ?");
             stm.setInt(1, exerciseID);
             stm.execute();
             stm.close();

@@ -162,7 +162,7 @@
                         <Insets bottom="13.0" right="20.0" top="30.0" />
                      </VBox.margin>
                   </Label>
-                  <ListView fx:id="exerciseInWorkoutList" editable="true" onEditCommit="#loadExercisesInWorkoutFromDB" onEditStart="#selectedExerciseClicked" prefHeight="621.0" prefWidth="138.0">
+                  <ListView fx:id="exerciseInWorkoutList" editable="true" onEditStart="#selectedExerciseClicked" prefHeight="621.0" prefWidth="138.0">
                      <VBox.margin>
                         <Insets right="40.0" />
                      </VBox.margin>

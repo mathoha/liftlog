@@ -39,10 +39,12 @@ public class AppController implements Initializable{
 
     }
 
-    public void goToExistingWorkout() throws IOException {
+    public void goToExistingWorkout(int workoutID) throws IOException {
         Parent existingWorkoutView = FXMLLoader.load(getClass().getResource("existingWorkout.fxml"));
+        borderPane.setCenter(null);
         borderPane.setCenter(existingWorkoutView);
-        currentSceneLabel.setText("Edit Workout");
+        currentSceneLabel.setText("Edit Workout " + workoutID);
+        System.out.println("hei");
 
     }
 

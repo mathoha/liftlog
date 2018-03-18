@@ -72,7 +72,8 @@ public class NewWorkoutController implements Initializable{
     private regularExerciseModel selectedRegularExercise;
     private exerciseInWorkoutModel selectedExerciseInWorkout;
     private int selectedWorkoutID = 0;
-    private int setCount = 0;
+    private int regsetCount = 0;
+    private int eqsetCount = 0;
 
 
 
@@ -189,10 +190,10 @@ public class NewWorkoutController implements Initializable{
         boolean isAlreadyInWorkout = loadSelectedEquipmentExerciseFromDB();
 
         if (isAlreadyInWorkout){
-            setCount = selectedEquipmentExerciseObservableList.size(); // !! will not work if sets are deleted !!
+            eqsetCount = selectedEquipmentExerciseObservableList.size(); // !! will not work if sets are deleted !!
         }
         else{
-            setCount = 0;
+            eqsetCount = 0;
         }
 
     }
@@ -202,26 +203,26 @@ public class NewWorkoutController implements Initializable{
 
 
         try {
-            setCount +=1;
+            eqsetCount +=1;
             Connection con = DBConnector.getConnection();
             PreparedStatement stm = con.prepareStatement("INSERT INTO Exercise_In_Workout (workoutID,exerciseID,set_nr) VALUES(?,?,?)");
             stm.setInt(1, selectedWorkoutID);
             stm.setInt(2, selectedEquipmentExercise.getExerciseID());
-            stm.setInt(3, setCount);
+            stm.setInt(3, eqsetCount);
             stm.execute();
             stm.close();
-            System.out.println("Inserted: " + selectedEquipmentExercise.getExercise_name() + " set: " + setCount + " into Exercise table");
+            System.out.println("Inserted: " + selectedEquipmentExercise.getExercise_name() + " set: " + eqsetCount + " into Exercise table");
 
             PreparedStatement stm2 = con.prepareStatement("INSERT INTO Equipment_Exercise_In_Workout (workoutID,exerciseID,set_nr,kilos,reps) VALUES(?,?,?,?,?)");
             stm2.setInt(1, selectedWorkoutID);
             stm2.setInt(2, selectedEquipmentExercise.getExerciseID());
-            stm2.setInt(3, setCount);
+            stm2.setInt(3, eqsetCount);
             stm2.setInt(4, weightSpinner.getValue());
             stm2.setInt(5, repsSpinner.getValue());
             stm2.execute();
             stm2.close();
 
-            System.out.println("Inserted: " + selectedEquipmentExercise.getExercise_name() + " set:" +  + setCount + " " + weightSpinner.getValue().toString() + "kg x" +repsSpinner.getValue().toString() +" into Equipment_Exercise_In_Workout table");
+            System.out.println("Inserted: " + selectedEquipmentExercise.getExercise_name() + " set:" +  + eqsetCount + " " + weightSpinner.getValue().toString() + "kg x" +repsSpinner.getValue().toString() +" into Equipment_Exercise_In_Workout table");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -282,10 +283,10 @@ public class NewWorkoutController implements Initializable{
         boolean isAlreadyInWorkout = loadSelectedRegularExerciseFromDB();
 
         if (isAlreadyInWorkout){
-            setCount = selectedRegularExerciseObservableList.size(); // !! will not work if sets are deleted !!
+            regsetCount = selectedRegularExerciseObservableList.size(); // !! will not work if sets are deleted !!
         }
         else{
-            setCount = 0;
+            regsetCount = 0;
         }
 
     }
@@ -294,25 +295,25 @@ public class NewWorkoutController implements Initializable{
         selectedRegularExercise = regularExerciseList.getSelectionModel().getSelectedItem();
 
         try {
-            setCount +=1;
+            regsetCount +=1;
             Connection con = DBConnector.getConnection();
             PreparedStatement stm = con.prepareStatement("INSERT INTO Exercise_In_Workout (workoutID,exerciseID,set_nr) VALUES(?,?,?)");
             stm.setInt(1, selectedWorkoutID);
             stm.setInt(2, selectedRegularExercise.getExerciseID());
-            stm.setInt(3, setCount);
+            stm.setInt(3, regsetCount);
             stm.execute();
             stm.close();
-            System.out.println("Inserted: " + selectedRegularExercise.getName() + " set: " + setCount + " into Exercise table");
+            System.out.println("Inserted: " + selectedRegularExercise.getName() + " set: " + regsetCount + " into Exercise table");
 
             PreparedStatement stm2 = con.prepareStatement("INSERT INTO Regular_Exercise_In_Workout (workoutID,exerciseID,set_nr,set_comment) VALUES(?,?,?,?)");
             stm2.setInt(1, selectedWorkoutID);
             stm2.setInt(2, selectedRegularExercise.getExerciseID());
-            stm2.setInt(3, setCount);
+            stm2.setInt(3, regsetCount);
             stm2.setString(4, regularSetComment.getText());
             stm2.execute();
             stm2.close();
 
-            System.out.println("Inserted: " + selectedRegularExercise.getName() + " set:" +  + setCount + " with comment: " + regularSetComment.getText() +" into Regular_Exercise_In_Workout table");
+            System.out.println("Inserted: " + selectedRegularExercise.getName() + " set:" +  + regsetCount + " with comment: " + regularSetComment.getText() +" into Regular_Exercise_In_Workout table");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -328,58 +329,65 @@ public class NewWorkoutController implements Initializable{
     public void selectedExerciseClicked(){
         //convert into selectedEquipmentExercise object so we can use the same method to get data from DB
         selectedExerciseInWorkout = exerciseInWorkoutList.getSelectionModel().getSelectedItem();
-        selectedEquipmentExercise = new equipmentExerciseModel(selectedExerciseInWorkout.getExerciseID(),selectedExerciseInWorkout.getExerciseName());
-        selectedRegularExercise = new regularExerciseModel(selectedExerciseInWorkout.getExerciseID(),selectedExerciseInWorkout.getExerciseName());
-
-
-        ListView equipmentSetsList = new ListView<>(selectedEquipmentExerciseObservableList);
-
-        equipmentSetsList.setCellFactory(param -> new ListCell<equipmentExerciseInWorkoutModel>() {
-            @Override
-            protected void updateItem(equipmentExerciseInWorkoutModel item, boolean empty) {
-                super.updateItem(item, empty);
-
-                if (empty || item == null || item.getClass() == null) {
-                    setText(null);
-                } else {
-                    setText("Set " + item.getSet_nr() +": " + item.getKilos() + " kg x " + item.getReps() + " reps" );
-                }
-            }
-        });
-
-        ListView regularSetsList = new ListView<>(selectedRegularExerciseObservableList);
-
-        regularSetsList.setCellFactory(param -> new ListCell<regularExerciseInWorkoutModel>() {
-            @Override
-            protected void updateItem(regularExerciseInWorkoutModel item, boolean empty) {
-                super.updateItem(item, empty);
-
-                if (empty || item == null || item.getClass() == null) {
-                    setText(null);
-                } else {
-                    setText("Set " + item.getSet_nr() +": " + item.getComment());
-                }
-            }
-        });
-
 
         Alert alert = new Alert(Alert.AlertType.NONE);
         alert.setTitle(selectedExerciseInWorkout.getExerciseName());
         alert.setHeaderText(" ");
         alert.setWidth(300);
 
-        if (selectedExerciseInWorkout.getType().equals("regular")){ //check type
+
+        if (selectedExerciseInWorkout.getType().equals("regular")){
+
+            selectedRegularExercise = new regularExerciseModel(selectedExerciseInWorkout.getExerciseID(),selectedExerciseInWorkout.getExerciseName());
+            loadSelectedRegularExerciseFromDB();
+
+            System.out.println("reg: " + selectedRegularExercise.getName());
+
+            ListView regularSetsList = new ListView<>(selectedRegularExerciseObservableList);
             regularSetsList.setPrefWidth(300);
             regularSetsList.setPrefHeight(300);
+
+            regularSetsList.setCellFactory(param -> new ListCell<regularExerciseInWorkoutModel>() {
+                @Override
+                protected void updateItem(regularExerciseInWorkoutModel item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (empty || item == null || item.getClass() == null) {
+                        setText(null);
+                    } else {
+                        setText("Set " + item.getSet_nr() +": " + item.getComment());
+                    }
+                }
+            });
+
+
             alert.setGraphic(regularSetsList);
         }
 
         if (selectedExerciseInWorkout.getType().equals("equipment")){ //check type
+
+
+            selectedEquipmentExercise = new equipmentExerciseModel(selectedExerciseInWorkout.getExerciseID(),selectedExerciseInWorkout.getExerciseName());
+            loadSelectedEquipmentExerciseFromDB();
+
+            ListView equipmentSetsList = new ListView<>(selectedEquipmentExerciseObservableList);
             equipmentSetsList.setPrefWidth(300);
             equipmentSetsList.setPrefHeight(300);
+
+            equipmentSetsList.setCellFactory(param -> new ListCell<equipmentExerciseInWorkoutModel>() {
+                @Override
+                protected void updateItem(equipmentExerciseInWorkoutModel item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (empty || item == null || item.getClass() == null) {
+                        setText(null);
+                    } else {
+                        setText("Set " + item.getSet_nr() +": " + item.getKilos() + " kg x " + item.getReps() + " reps" );
+                    }
+                }
+            });
             alert.setGraphic(equipmentSetsList);
         }
-
 
 
         ButtonType deleteButton = new ButtonType("Delete");
