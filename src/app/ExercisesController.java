@@ -1,9 +1,6 @@
 package app;
 
-import app.models.equipmentExerciseModel;
-import app.models.equipmentModel;
-import app.models.exerciseGroupModel;
-import app.models.regularExerciseModel;
+import app.models.*;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -52,6 +49,9 @@ public class ExercisesController implements Initializable{
     private ObservableList<equipmentExerciseModel> equipmentExerciseObservableList = FXCollections.observableArrayList();
     private ObservableList<equipmentModel> equipmentObservableList = FXCollections.observableArrayList();
     private ObservableList<exerciseGroupModel> exerciseGroupObservableList = FXCollections.observableArrayList();
+    private ObservableList<exercisePRModel> exercisePRObservableList = FXCollections.observableArrayList();
+
+    @FXML ListView<exercisePRModel> prList = new ListView<>(exercisePRObservableList);
 
 
     public void addRegularExerciseButtonPressed() throws IOException {
@@ -295,7 +295,8 @@ public class ExercisesController implements Initializable{
 
     public void displayRegularExercise(regularExerciseModel model){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText(model.getName());
+        alert.setTitle(model.getName());
+        alert.setHeaderText("");
         alert.setContentText(model.getDescription());
         alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE); //to get the text to wrap
 
@@ -335,12 +336,53 @@ public class ExercisesController implements Initializable{
 
     }
 
+    public void loadExercisePRFromDB(int exerciseID){
+
+        try {
+            prList.getItems().clear();
+            Connection con = DBConnector.getConnection();
+
+            PreparedStatement q = con.prepareStatement("Select Max(kilos) as max_kilos, name, reps, exerciseID from Exercise_In_Workout natural join Exercise natural join Equipment_Exercise_In_Workout where ExerciseID = ? Group by reps");
+            q.setInt(1, exerciseID);
+
+            ResultSet rs = q.executeQuery();
+            while (rs.next()){
+                exercisePRObservableList.add(new exercisePRModel(rs.getInt("exerciseID"),rs.getInt("reps"),rs.getInt("max_kilos"),rs.getString("name")));
+            }
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        prList.setCellFactory(param -> new ListCell<exercisePRModel>() {
+            @Override
+            protected void updateItem(exercisePRModel item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty || item == null || item.getClass() == null) {
+                    setText(null);
+                } else {
+                    setText(item.getReps() +"RM: " + item.getKilos() + " -> Estimated 1RM: " + item.getRepMax());
+                }
+            }
+        });
+
+        prList.setItems(exercisePRObservableList);
+
+
+    }
+
     public void displayEquipmentExercise(equipmentExerciseModel model){
+        loadExercisePRFromDB(model.getExerciseID());
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText(model.getExercise_name());
+        alert.setTitle(model.getExercise_name());
+        alert.setHeaderText(" ");
         alert.setContentText("Equipment: " + model.getEquipment_name() +"\n\n" + "(" + model.getEquipment_description() +")");
         alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE); //to get the text to wrap
-
+        prList.setPrefHeight(225);
+        alert.setGraphic(prList);
 
         ButtonType deleteButton = new ButtonType("Delete");
         ButtonType closeButton = new ButtonType("Close", ButtonBar.ButtonData.OK_DONE);

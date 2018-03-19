@@ -4,19 +4,14 @@ package app;
 import app.models.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
@@ -51,16 +46,15 @@ public class WorkoutsController implements Initializable{
     private ObservableList<equipmentExerciseInWorkoutModel> selectedEquipmentExerciseObservableList = FXCollections.observableArrayList();
     private ObservableList<regularExerciseInWorkoutModel> selectedRegularExerciseObservableList = FXCollections.observableArrayList();
     private ObservableList<exerciseInWorkoutModel> exerciseInWorkoutObservableList = FXCollections.observableArrayList();
+    private ObservableList<String> timeObservableList = FXCollections.observableArrayList();
+
 
     @FXML
     BorderPane selectedWorkoutPane;
 
-    @FXML
-    DatePicker datePicker;
-    @FXML
-    TextField timeTextField;
-    @FXML
-    Spinner<Integer> durationSpinner = new Spinner<>();
+    @FXML DatePicker datePicker;
+    @FXML ComboBox<String> timeComboBox;
+    @FXML Spinner<Integer> durationSpinner = new Spinner<>();
     @FXML Spinner<Integer> shapeSpinner = new Spinner<>();
     @FXML Spinner<Integer> performanceSpinner = new Spinner<>();
     @FXML TextArea noteTextArea;
@@ -136,9 +130,22 @@ public class WorkoutsController implements Initializable{
     //-----------------------SelectedWorkout------------------------
 
 
+    public void fillTimeComboBox(){
+        for(int i = 4; i <10; i++){
+            timeObservableList.add("0"+i+":00");
+        }
+        for(int i = 10; i <25; i++){
+            timeObservableList.add(+i+":00");
+        }
+        timeComboBox.setItems(timeObservableList);
+        timeComboBox.getSelectionModel().select(10);
+    }
+
+
+
     public void discardButtonPressed() {
         datePicker.setVisible(false);
-        timeTextField.setVisible(false);
+        timeComboBox.setVisible(false);
         durationSpinner.setVisible(false);
         shapeSpinner.setVisible(false);
         performanceSpinner.setVisible(false);
@@ -146,6 +153,7 @@ public class WorkoutsController implements Initializable{
         editButton.setVisible(true);
         saveButton.setVisible(false);
         discardButton.setVisible(false);
+        deleteButton.setVisible(true);
 
     }
 
@@ -153,7 +161,7 @@ public class WorkoutsController implements Initializable{
     public void saveButtonPressed() {
 
         dateLabel.setText(datePicker.getValue().toString());
-        timeLabel.setText(timeTextField.getText());
+        timeLabel.setText(timeComboBox.getValue());
         durationLabel.setText(durationSpinner.getValue().toString());
         shapeLabel.setText(shapeSpinner.getValue().toString());
         performanceLabel.setText(performanceSpinner.getValue().toString());
@@ -162,18 +170,57 @@ public class WorkoutsController implements Initializable{
         saveButton.setVisible(false);
         discardButton.setVisible(false);
         editButton.setVisible(true);
+        deleteButton.setVisible(true);
 
-        //update in database;
+        datePicker.setVisible(false);
+        timeComboBox.setVisible(false);
+        durationSpinner.setVisible(false);
+        shapeSpinner.setVisible(false);
+        performanceSpinner.setVisible(false);
+        noteTextArea.setVisible(false);
+        editButton.setVisible(true);
+        saveButton.setVisible(false);
+        discardButton.setVisible(false);
+        deleteButton.setVisible(true);
+
+        try {
+            Connection con = DBConnector.getConnection();
+            PreparedStatement stm = con.prepareStatement("UPDATE Workout SET workout_date = ?, workout_time = ?," +
+                    " duration = ?, shape = ?, performance = ?, note = ? WHERE workoutID = ?");
+            stm.setString(1, datePicker.getValue().toString());
+            stm.setString(2, timeComboBox.getValue());
+            stm.setInt(3, durationSpinner.getValue());
+            stm.setInt(4, shapeSpinner.getValue());
+            stm.setInt(5, performanceSpinner.getValue());
+            stm.setString(6, noteTextArea.getText());
+            stm.setInt(7, selectedWorkoutID);
+            stm.execute();
+            stm.close();
+            System.out.println("Successfully updated workout: " + selectedWorkoutID );
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
     public void editButtonPressed(){
         System.out.println(selectedWorkout.getWorkoutID());
         //load data into input fields
+        datePicker.setValue(selectedWorkout.getDate().toLocalDate());
+        timeComboBox.setValue(selectedWorkout.getTime().toString());
+        durationSpinner.getValueFactory().setValue(selectedWorkout.getDuration());
+        shapeSpinner.getValueFactory().setValue(selectedWorkout.getShape());
+        performanceSpinner.getValueFactory().setValue(selectedWorkout.getPerformance());
+        noteTextArea.setText(selectedWorkout.getNote());
+        editButton.setVisible(false);
+        deleteButton.setVisible(false);
+        saveButton.setVisible(true);
+        discardButton.setVisible(true);
 
-        //show input UI
         datePicker.setVisible(true);
-        timeTextField.setVisible(true);
+        timeComboBox.setVisible(true);
         durationSpinner.setVisible(true);
         shapeSpinner.setVisible(true);
         performanceSpinner.setVisible(true);
@@ -261,6 +308,7 @@ public class WorkoutsController implements Initializable{
         selectedEquipmentExerciseLabel.setText(selectedEquipmentExercise.getExercise_name());
 
         addEquipmentSetsBox.setVisible(true);
+        equipmentExerciseList.setEditable(true);
 
         boolean isAlreadyInWorkout = loadSelectedEquipmentExerciseFromDB();
 
@@ -592,6 +640,8 @@ public class WorkoutsController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         loadWorkoutsFromDB();
 
+        fillTimeComboBox();
+
         col_date.setCellValueFactory(new PropertyValueFactory<>("date"));
         col_time.setCellValueFactory(new PropertyValueFactory<>("time"));
         col_duration.setCellValueFactory(new PropertyValueFactory<>("duration"));
@@ -638,7 +688,7 @@ public class WorkoutsController implements Initializable{
 
         datePicker.setValue(LocalDate.now());
         datePicker.setVisible(false);
-        timeTextField.setVisible(false);
+        timeComboBox.setVisible(false);
         durationSpinner.setVisible(false);
         shapeSpinner.setVisible(false);
         performanceSpinner.setVisible(false);

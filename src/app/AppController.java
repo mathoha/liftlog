@@ -20,6 +20,7 @@ public class AppController implements Initializable{
     @FXML private Button workouts;
     @FXML private Button exercises;
     @FXML private Button equipment;
+    @FXML private Button personalRecords;
     @FXML private Label currentSceneLabel;
 
 
@@ -39,13 +40,10 @@ public class AppController implements Initializable{
 
     }
 
-    public void goToExistingWorkout(int workoutID) throws IOException {
-        Parent existingWorkoutView = FXMLLoader.load(getClass().getResource("existingWorkout.fxml"));
-        borderPane.setCenter(null);
-        borderPane.setCenter(existingWorkoutView);
-        currentSceneLabel.setText("Edit Workout " + workoutID);
-        System.out.println("hei");
-
+    public void goToPersonalRecords(ActionEvent event) throws IOException {
+        Parent personalRecordsView = FXMLLoader.load(getClass().getResource("personalRecords.fxml"));
+        borderPane.setCenter(personalRecordsView);
+        currentSceneLabel.setText("Personal Records");
     }
 
     public void goToExercises(ActionEvent event) throws IOException {

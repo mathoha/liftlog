@@ -6,19 +6,11 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -29,10 +21,11 @@ public class NewWorkoutController implements Initializable{
     private ObservableList<equipmentExerciseInWorkoutModel> selectedEquipmentExerciseObservableList = FXCollections.observableArrayList();
     private ObservableList<regularExerciseInWorkoutModel> selectedRegularExerciseObservableList = FXCollections.observableArrayList();
     private ObservableList<exerciseInWorkoutModel> exerciseInWorkoutObservableList = FXCollections.observableArrayList();
+    private ObservableList<String> timeObservableList = FXCollections.observableArrayList();
 
 
     @FXML DatePicker datePicker;
-    @FXML TextField timeTextField;
+    @FXML ComboBox<String> timeComboBox;
     @FXML Spinner<Integer> durationSpinner = new Spinner<>();
     @FXML Spinner<Integer> shapeSpinner = new Spinner<>();
     @FXML Spinner<Integer> performanceSpinner = new Spinner<>();
@@ -76,11 +69,20 @@ public class NewWorkoutController implements Initializable{
     private int eqsetCount = 0;
 
 
-
+    public void fillTimeComboBox(){
+        for(int i = 4; i <10; i++){
+            timeObservableList.add("0"+i+":00");
+        }
+        for(int i = 10; i <25; i++){
+            timeObservableList.add(+i+":00");
+        }
+        timeComboBox.setItems(timeObservableList);
+        timeComboBox.getSelectionModel().select(10);
+    }
 
     public void discardButtonPressed() {
         datePicker.setValue(LocalDate.now());
-        timeTextField.clear();
+        timeComboBox.getSelectionModel().clearAndSelect(10);
         durationSpinner.getValueFactory().setValue(60);
         shapeSpinner.getValueFactory().setValue(5);
         performanceSpinner.getValueFactory().setValue(5);
@@ -93,7 +95,7 @@ public class NewWorkoutController implements Initializable{
             Connection con = DBConnector.getConnection();
             PreparedStatement stm = con.prepareStatement("INSERT INTO Workout (workout_date, workout_time, duration, shape, performance, note) VALUES(?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
             stm.setString(1, datePicker.getValue().toString());
-            stm.setString(2, timeTextField.getText());
+            stm.setString(2, timeComboBox.getValue());
             stm.setInt(3, durationSpinner.getValue());
             stm.setInt(4, shapeSpinner.getValue());
             stm.setInt(5, performanceSpinner.getValue());
@@ -114,7 +116,7 @@ public class NewWorkoutController implements Initializable{
 
         //hide input UI and show data on new workout created
         datePicker.setVisible(false);
-        timeTextField.setVisible(false);
+        timeComboBox.setVisible(false);
         durationSpinner.setVisible(false);
         shapeSpinner.setVisible(false);
         performanceSpinner.setVisible(false);
@@ -123,7 +125,7 @@ public class NewWorkoutController implements Initializable{
         discardButton.setVisible(false);
 
         dateLabel.setText(datePicker.getValue().toString());
-        timeLabel.setText(timeTextField.getText());
+        timeLabel.setText(timeComboBox.getValue());
         durationLabel.setText(durationSpinner.getValue().toString());
         shapeLabel.setText(shapeSpinner.getValue().toString());
         performanceLabel.setText(performanceSpinner.getValue().toString());
@@ -480,6 +482,8 @@ public class NewWorkoutController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        fillTimeComboBox();
 
 
         //intitialize input format for new workout
