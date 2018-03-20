@@ -14,6 +14,7 @@ public class Main extends Application {
         primaryStage.setTitle("Lift Log");
         primaryStage.setScene(new Scene(root, 1000, 750));
         primaryStage.show();
+
     }
 
 

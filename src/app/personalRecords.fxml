@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -16,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="710.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.PersonalRecordsController">
+<AnchorPane prefHeight="710.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.PersonalRecordsController">
    <children>
       <TableView fx:id="PRTableView" editable="true" layoutY="65.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="458.0">
         <columns>
@@ -281,7 +284,7 @@
       </BorderPane>
       <HBox fx:id="selectNWorkoutsBox" alignment="CENTER_RIGHT" layoutY="1.0" prefHeight="50.0" prefWidth="880.0">
          <children>
-            <Label prefWidth="85.0" text="Exercise ">
+            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="19.0" prefWidth="95.0" text="Exercise ">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -291,23 +294,26 @@
                   <Insets right="220.0" />
                </HBox.margin>
             </ComboBox>
-            <Label text="From ">
+            <Label prefHeight="19.0" prefWidth="49.0" text="From ">
                <font>
                   <Font size="15.0" />
                </font></Label>
-            <DatePicker fx:id="fromDate" prefHeight="26.0" prefWidth="140.0" />
+            <DatePicker fx:id="fromDate" prefHeight="26.0" prefWidth="130.0" />
             <Label alignment="CENTER_RIGHT" prefHeight="16.0" prefWidth="34.0" text="To ">
                <font>
                   <Font size="15.0" />
                </font></Label>
-            <DatePicker fx:id="toDate" prefHeight="26.0" prefWidth="140.0" />
-            <Button fx:id="selectDateInterval" mnemonicParsing="false" onAction="#selectDateIntervalButtonPressed" text="Select" />
+            <DatePicker fx:id="toDate" prefHeight="26.0" prefWidth="130.0" />
+            <Button fx:id="selectDateInterval" mnemonicParsing="false" onAction="#selectDateIntervalButtonPressed" prefHeight="26.0" prefWidth="63.0" text="Select">
+               <HBox.margin>
+                  <Insets left="15.0" right="10.0" />
+               </HBox.margin></Button>
          </children>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </HBox>
-      <VBox layoutX="509.0" layoutY="65.0" prefHeight="418.0" prefWidth="304.0">
+      <VBox layoutX="509.0" layoutY="65.0" prefHeight="101.0" prefWidth="304.0">
          <children>
             <Label fx:id="exerciseName" prefHeight="30.0" prefWidth="304.0" text="Deadlift">
                <font>
@@ -332,5 +338,16 @@
             </Label>
          </children>
       </VBox>
+      <LineChart fx:id="oneRMChart" alternativeRowFillVisible="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="461.0" layoutY="238.0" prefHeight="400.0" prefWidth="418.0" title="1RM" verticalGridLinesVisible="false">
+        <xAxis>
+          <CategoryAxis label="Time" side="BOTTOM" fx:id="x" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="y" minorTickCount="2" side="LEFT" tickLabelFill="#f24208">
+               <tickLabelFont>
+                  <Font size="13.0" />
+               </tickLabelFont></NumberAxis>
+        </yAxis>
+      </LineChart>
    </children>
 </AnchorPane>

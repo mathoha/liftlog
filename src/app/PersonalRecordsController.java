@@ -4,22 +4,29 @@ package app;
 import app.models.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.StringConverter;
 
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.sql.*;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Comparator;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class PersonalRecordsController implements Initializable{
@@ -44,6 +51,10 @@ public class PersonalRecordsController implements Initializable{
     @FXML private TableColumn<exercisePRModel,Integer> col_kilos;
     @FXML private TableColumn<exercisePRModel,Integer> col_reps;
     @FXML private TableColumn<exercisePRModel,Integer> col_1RM;
+
+    @FXML private LineChart<String,Number> oneRMChart;
+    @FXML private CategoryAxis x;
+    @FXML private NumberAxis y;
 
     ObservableList<exercisePRModel> PRObservableList = FXCollections.observableArrayList();
     private ObservableList<String> timeObservableList = FXCollections.observableArrayList();
@@ -145,6 +156,7 @@ public class PersonalRecordsController implements Initializable{
         exerciseName.setVisible(false);
         oneRMLabel.setVisible(false);
         oneRMDateLabel.setVisible(false);
+        oneRMChart.setVisible(false);
         selectedWorkout = getExistingWorkoutFromDB(workoutID);
         selectedWorkoutID = workoutID;
         loadExercisesInWorkoutFromDB();
@@ -341,6 +353,7 @@ public class PersonalRecordsController implements Initializable{
         equipmentExerciseSetList.setItems(selectedEquipmentExerciseObservableList);
         if (selectedEquipmentExerciseObservableList.isEmpty()){
             return false;
+
         }
         return true;
     }
@@ -348,7 +361,6 @@ public class PersonalRecordsController implements Initializable{
     public void equipmentExerciseSelected(){
         selectedEquipmentExercise = equipmentExerciseList.getSelectionModel().getSelectedItem();
         selectedEquipmentExerciseLabel.setText(selectedEquipmentExercise.getExercise_name());
-        System.out.println("why not open??");
         addEquipmentSetsBox.setVisible(true);
 
         boolean isAlreadyInWorkout = loadSelectedEquipmentExerciseFromDB();
@@ -684,9 +696,6 @@ public class PersonalRecordsController implements Initializable{
 
     public void loadPersonalRecordsFromDB(){
         if(! exerciseComboBox.getSelectionModel().isEmpty()){
-
-
-
             try {
                 PRObservableList.clear();
                 Connection con = DBConnector.getConnection();
@@ -696,7 +705,7 @@ public class PersonalRecordsController implements Initializable{
                         " natural join Exercise  natural join Equipment_Exercise_In_Workout\n" +
                         " where ExerciseID = ?) as t1  on t1.workoutID = Workout.workoutID \n" +
                         " where Workout.workout_date>=?\n" +
-                        "AND Workout.workout_date <?\n" +
+                        "AND Workout.workout_date <=?\n" +
                         "order by workout_date desc, workout_time asc;");
                 q.setInt(1, exerciseComboBox.getValue().getExerciseID());
                 q.setString(2, fromDate.getValue().toString());
@@ -712,17 +721,85 @@ public class PersonalRecordsController implements Initializable{
                 e.printStackTrace();
             }
 
-            //takes out the max value of estimated 1RMs from the selected exercise;
-            exercisePRModel oneRMset = PRObservableList.stream().max(Comparator.comparing(exercisePRModel::getOneRM)).get();
+            if(! PRObservableList.isEmpty()){
+                //takes out the max value of estimated 1RMs from the selected exercise;
+                exercisePRModel oneRMset = PRObservableList.stream().max(Comparator.comparing(exercisePRModel::getOneRM)).get();
 
-            exerciseName.setText(oneRMset.getName());
-            oneRMLabel.setText("Estimated 1RM: " + oneRMset.getOneRM() + " kg");
-            oneRMDateLabel.setText(oneRMset.getDate().toString() + " (" + oneRMset.getKilos() + " kg x " + oneRMset.getReps() + ")");
-            exerciseName.setVisible(true);
-            oneRMLabel.setVisible(true);
-            oneRMDateLabel.setVisible(true);
+                exerciseName.setText(oneRMset.getName());
+                oneRMLabel.setText("Estimated 1RM: " + oneRMset.getOneRM() + " kg");
+                oneRMDateLabel.setText(oneRMset.getDate().toString() + " (" + oneRMset.getKilos() + " kg x " + oneRMset.getReps() + ")");
+                exerciseName.setVisible(true);
+                oneRMLabel.setVisible(true);
+                oneRMDateLabel.setVisible(true);
+
+                displayOneRMGraph();
+                oneRMChart.setVisible(true);
+            }
+            else{
+                exerciseName.setVisible(false);
+                oneRMLabel.setVisible(false);
+                oneRMDateLabel.setVisible(false);
+                oneRMChart.setVisible(false);
+            }
+
+
         }
     }
+
+
+    public void displayOneRMGraph(){
+
+        oneRMChart.getData().clear();
+
+        List<exercisePRModel> prList = PRObservableList.stream().collect(Collectors.toList());
+        Date prevDate = prList.get(0).getDate();
+        ObservableList<exercisePRModel> sameWorkout = FXCollections.observableArrayList();
+        ObservableList<exercisePRModel> prEachWorkout = FXCollections.observableArrayList();
+        for(int i = 0; i <prList.size(); i++){
+
+            Date workoutDate = prList.get(i).getDate();
+
+            //each time we get to a new workout'
+            if (! workoutDate.equals(prevDate)){
+                exercisePRModel prInWorkout = sameWorkout.stream().max(Comparator.comparing(exercisePRModel::getOneRM)).get();
+                prEachWorkout.add(prInWorkout);
+                sameWorkout.clear();
+                sameWorkout.add(prList.get(i));
+                prevDate = prList.get(i).getDate();
+            }
+
+            else{
+                sameWorkout.add(prList.get(i));
+                prevDate = prList.get(i).getDate();
+            }
+
+
+
+        }
+
+        XYChart.Series<String,Number> series = new XYChart.Series();
+
+        prEachWorkout.forEach((workout)-> {
+            XYChart.Data node = new XYChart.Data(workout.getDate().toString(), workout.getOneRM());
+            series.getData().add(node);
+        });
+        series.setName("click on a point!");
+
+        oneRMChart.getData().addAll(series);
+        oneRMChart.getXAxis().setTickLabelsVisible(false);
+        oneRMChart.getXAxis().setOpacity(0);
+
+        series.getData().forEach((pr)->{
+            pr.getNode().setOnMouseClicked((MouseEvent event) -> {
+                series.setName(pr.getYValue() + " kg (" + pr.getXValue() + ")");
+
+            });
+
+        });
+
+
+    }
+
 
 
 
@@ -732,6 +809,7 @@ public class PersonalRecordsController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         fromDate.setValue(LocalDate.now().minus(Period.ofDays(365)));
         toDate.setValue(LocalDate.now());
+
         loadPersonalRecordsFromDB();
 
 
@@ -763,6 +841,7 @@ public class PersonalRecordsController implements Initializable{
         PRTableView.setItems(PRObservableList);
 
         selectedWorkoutPane.setVisible(false);
+        oneRMChart.setVisible(false);
 
 
 
