@@ -10,29 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/AppController.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/AppController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/DBConnector.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/DBConnector.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/Main.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/Main.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/PersonalRecordsController$1.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/PersonalRecordsController$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/PersonalRecordsController$2.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/PersonalRecordsController$2.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/PersonalRecordsController$3.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/PersonalRecordsController$3.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/PersonalRecordsController$4.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/PersonalRecordsController$4.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/PersonalRecordsController$5.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/PersonalRecordsController$5.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/PersonalRecordsController$6.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/PersonalRecordsController$6.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/PersonalRecordsController$7.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/PersonalRecordsController$7.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/PersonalRecordsController$8.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/PersonalRecordsController$8.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/PersonalRecordsController.class" afterPath="$PROJECT_DIR$/out/production/liftlog/app/PersonalRecordsController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/app.fxml" afterPath="$PROJECT_DIR$/out/production/liftlog/app/app.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/equipment.fxml" afterPath="$PROJECT_DIR$/out/production/liftlog/app/equipment.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/liftlog/app/personalRecords.fxml" afterPath="$PROJECT_DIR$/out/production/liftlog/app/personalRecords.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/app/AppController.java" afterPath="$PROJECT_DIR$/src/app/AppController.java" />
-      <change beforePath="$PROJECT_DIR$/src/app/DBConnector.java" afterPath="$PROJECT_DIR$/src/app/DBConnector.java" />
-      <change beforePath="$PROJECT_DIR$/src/app/Main.java" afterPath="$PROJECT_DIR$/src/app/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/app/PersonalRecordsController.java" afterPath="$PROJECT_DIR$/src/app/PersonalRecordsController.java" />
+      <change beforePath="$PROJECT_DIR$/src/app/NewWorkoutController.java" afterPath="$PROJECT_DIR$/src/app/NewWorkoutController.java" />
+      <change beforePath="$PROJECT_DIR$/src/app/WorkoutsController.java" afterPath="$PROJECT_DIR$/src/app/WorkoutsController.java" />
       <change beforePath="$PROJECT_DIR$/src/app/app.fxml" afterPath="$PROJECT_DIR$/src/app/app.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/app/equipment.fxml" afterPath="$PROJECT_DIR$/src/app/equipment.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/app/personalRecords.fxml" afterPath="$PROJECT_DIR$/src/app/personalRecords.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/app/newWorkout.fxml" afterPath="$PROJECT_DIR$/src/app/newWorkout.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/app/workouts.fxml" afterPath="$PROJECT_DIR$/src/app/workouts.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,7 +27,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/liftlog$Main.coverage" NAME="Main Coverage Results" MODIFIED="1521100447089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/liftlog$Main.coverage" NAME="Main Coverage Results" MODIFIED="1521573649184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.*</FILTER>
     </SUITE>
   </component>
@@ -95,12 +77,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PersonalRecordsController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PersonalRecordsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/PersonalRecordsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="277" column="41" lean-forward="true" selection-start-line="277" selection-start-column="41" selection-end-line="277" selection-end-column="41" />
+            <state relative-caret-position="18">
+              <caret line="683" column="61" lean-forward="false" selection-start-line="683" selection-start-column="51" selection-end-line="683" selection-end-column="61" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewWorkoutController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/NewWorkoutController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="472">
+              <caret line="752" column="8" lean-forward="false" selection-start-line="752" selection-start-column="8" selection-end-line="754" selection-end-column="35" />
+              <folding>
+                <element signature="e#23709#24118#0" expanded="true" />
+                <element signature="e#24117#24118#0" expanded="true" />
+                <element signature="e#25276#25698#0" expanded="true" />
+                <element signature="e#25697#25698#0" expanded="true" />
+                <element signature="e#26446#26855#0" expanded="true" />
+                <element signature="e#26854#26855#0" expanded="true" />
+                <element signature="e#27802#28224#0" expanded="true" />
+                <element signature="e#28223#28224#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WorkoutsController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/WorkoutsController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="956" column="13" lean-forward="true" selection-start-line="956" selection-start-column="13" selection-end-line="956" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#29095#29504#0" expanded="true" />
+                <element signature="e#29503#29504#0" expanded="true" />
+                <element signature="e#30662#31084#0" expanded="true" />
+                <element signature="e#31083#31084#0" expanded="true" />
+                <element signature="e#31832#32241#0" expanded="true" />
+                <element signature="e#32240#32241#0" expanded="true" />
+                <element signature="e#33188#33610#0" expanded="true" />
+                <element signature="e#33609#33610#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -109,7 +130,7 @@
         <entry file="file://$PROJECT_DIR$/src/app/AddEquipmentController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="10" lean-forward="true" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
+              <caret line="0" column="10" lean-forward="false" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -129,7 +150,7 @@
         <entry file="file://$PROJECT_DIR$/src/app/DBConnector.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
                 <element signature="e#320#321#0" expanded="true" />
                 <element signature="e#346#347#0" expanded="true" />
@@ -169,29 +190,7 @@
           </provider>
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="144">
-              <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WorkoutsController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/WorkoutsController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="667" column="53" lean-forward="true" selection-start-line="667" selection-start-column="53" selection-end-line="667" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExercisesController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/ExercisesController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="47" column="35" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+              <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -209,19 +208,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>propert</find>
-      <find>kilos</find>
-      <find>PRObservableList</find>
-      <find>datepicker.set</find>
-      <find>comboBox</find>
-      <find>exerciseComboBox</find>
-      <find>Nwor</find>
-      <find>exerciseObservableList</find>
       <find>selectedWork</find>
       <find>selectedWorkout</find>
       <find>enterEx</find>
       <find>date</find>
-      <find>spinner</find>
       <find>timeCombo</find>
       <find>getSelectionModel().select(10)</find>
       <find>getSelectionModel().select(</find>
@@ -237,8 +227,17 @@
       <find>SYstem</find>
       <find>.now</find>
       <find>dbconn</find>
-      <find>selectN</find>
       <find>nSpinner</find>
+      <find>spinner</find>
+      <find>regularExer</find>
+      <find>exerciseComboBox</find>
+      <find>exerciseGroupModel</find>
+      <find>ComboBox.set</find>
+      <find>clear</find>
+      <find>ComboBox.setCellFactory</find>
+      <find>addEq</find>
+      <find>selected</find>
+      <find>selectN</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -293,14 +292,14 @@
         <option value="$PROJECT_DIR$/src/app/exerciseRecords.fxml" />
         <option value="$PROJECT_DIR$/src/app/app.fxml" />
         <option value="$PROJECT_DIR$/src/app/models/exercisePRModel.java" />
-        <option value="$PROJECT_DIR$/src/app/NewWorkoutController.java" />
         <option value="$PROJECT_DIR$/src/app/ExistingWorkoutController.java" />
-        <option value="$PROJECT_DIR$/src/app/WorkoutsController.java" />
         <option value="$PROJECT_DIR$/src/app/AddEquipmentController.java" />
         <option value="$PROJECT_DIR$/src/app/Main.java" />
         <option value="$PROJECT_DIR$/src/app/DBConnector.java" />
         <option value="$PROJECT_DIR$/src/app/AppController.java" />
         <option value="$PROJECT_DIR$/src/app/PersonalRecordsController.java" />
+        <option value="$PROJECT_DIR$/src/app/NewWorkoutController.java" />
+        <option value="$PROJECT_DIR$/src/app/WorkoutsController.java" />
       </list>
     </option>
   </component>
@@ -565,7 +564,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1922" height="1212" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -575,8 +573,9 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969034" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23497267" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23497267" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -597,7 +596,6 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
     </layout>
@@ -778,13 +776,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/models/exerciseGroupModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-oracle/jre/lib/rt.jar!/com/sun/xml/internal/ws/encoding/fastinfoset/FastInfosetStreamSOAP11Codec.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="83">
@@ -961,14 +952,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/ExerciseGroupsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2628">
-          <caret line="165" column="0" lean-forward="false" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/ExistingWorkoutController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
@@ -984,14 +967,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="114" column="76" lean-forward="false" selection-start-line="114" selection-start-column="72" selection-end-line="114" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/NewWorkoutController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="68" column="31" lean-forward="false" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -1030,7 +1005,7 @@
     <entry file="file://$PROJECT_DIR$/src/app/ExercisesController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
-          <caret line="47" column="35" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <caret line="47" column="35" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1054,7 +1029,7 @@
     <entry file="file://$PROJECT_DIR$/src/app/AddEquipmentController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="10" lean-forward="true" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
+          <caret line="0" column="10" lean-forward="false" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1070,7 +1045,7 @@
     <entry file="file://$PROJECT_DIR$/src/app/DBConnector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
             <element signature="e#320#321#0" expanded="true" />
             <element signature="e#346#347#0" expanded="true" />
@@ -1100,32 +1075,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/WorkoutsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="667" column="53" lean-forward="true" selection-start-line="667" selection-start-column="53" selection-end-line="667" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/workouts.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+          <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/models/exerciseGroupModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/PersonalRecordsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="277" column="41" lean-forward="true" selection-start-line="277" selection-start-column="41" selection-end-line="277" selection-end-column="41" />
+        <state relative-caret-position="18">
+          <caret line="683" column="61" lean-forward="false" selection-start-line="683" selection-start-column="51" selection-end-line="683" selection-end-column="61" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/ExerciseGroupsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="25" column="113" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/NewWorkoutController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="752" column="8" lean-forward="false" selection-start-line="752" selection-start-column="8" selection-end-line="754" selection-end-column="35" />
+          <folding>
+            <element signature="e#23709#24118#0" expanded="true" />
+            <element signature="e#24117#24118#0" expanded="true" />
+            <element signature="e#25276#25698#0" expanded="true" />
+            <element signature="e#25697#25698#0" expanded="true" />
+            <element signature="e#26446#26855#0" expanded="true" />
+            <element signature="e#26854#26855#0" expanded="true" />
+            <element signature="e#27802#28224#0" expanded="true" />
+            <element signature="e#28223#28224#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/WorkoutsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="956" column="13" lean-forward="true" selection-start-line="956" selection-start-column="13" selection-end-line="956" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#29095#29504#0" expanded="true" />
+            <element signature="e#29503#29504#0" expanded="true" />
+            <element signature="e#30662#31084#0" expanded="true" />
+            <element signature="e#31083#31084#0" expanded="true" />
+            <element signature="e#31832#32241#0" expanded="true" />
+            <element signature="e#32240#32241#0" expanded="true" />
+            <element signature="e#33188#33610#0" expanded="true" />
+            <element signature="e#33609#33610#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

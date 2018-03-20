@@ -133,14 +133,24 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <ComboBox prefWidth="150.0" />
+            <HBox>
+               <children>
+                  <ComboBox fx:id="exerciseGroupsComboBox" onAction="#equipmentGroupSelected" prefWidth="150.0" />
+                  <Button fx:id="showAllEquipmentExercises" mnemonicParsing="false" onAction="#showAllEquipmentExercisesButtonPressed" prefHeight="26.0" prefWidth="49.0" text="All" />
+               </children>
+            </HBox>
             <ListView fx:id="equipmentExerciseList" editable="true" onEditStart="#equipmentExerciseSelected" prefHeight="284.0" prefWidth="200.0" />
             <Label text="Regular Exercises">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <ComboBox prefWidth="150.0" />
+            <HBox>
+               <children>
+                  <ComboBox fx:id="exerciseRegularGroupsComboBox" onAction="#regularGroupSelected" prefWidth="150.0" />
+                  <Button fx:id="showAllRegularExercises" mnemonicParsing="false" onAction="#showAllRegularExercisesButtonPressed" prefHeight="26.0" prefWidth="49.0" text="All" />
+               </children>
+            </HBox>
             <ListView fx:id="regularExerciseList" editable="true" onEditStart="#regularExerciseSelected" prefHeight="301.0" prefWidth="189.0" />
          </children>
          <BorderPane.margin>

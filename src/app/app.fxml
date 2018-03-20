@@ -30,14 +30,14 @@
     <top>
         <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="789.0" BorderPane.alignment="TOP_LEFT">
          <children>
-            <Label alignment="CENTER" onMouseClicked="#logoClicked" prefHeight="30.0" prefWidth="124.0" text="LiftLog" textAlignment="CENTER">
+            <Label alignment="CENTER" onMouseClicked="#logoClicked" prefHeight="30.0" prefWidth="118.0" text="LiftLog" textAlignment="CENTER">
                <font>
                   <Font name="DejaVu Sans Bold" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="currentSceneLabel" prefHeight="30.0" prefWidth="138.0" text="Workout log" textFill="#303030cf">
+            <Label fx:id="currentSceneLabel" prefHeight="30.0" prefWidth="144.0" text="Workout log" textFill="#303030cf">
                <font>
-                  <Font name="DejaVu Sans Oblique" size="17.0" />
+                  <Font name="DejaVu Sans Oblique" size="16.0" />
                </font>
                <HBox.margin>
                   <Insets left="5.0" right="20.0" />

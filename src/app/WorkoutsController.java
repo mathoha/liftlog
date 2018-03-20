@@ -11,12 +11,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.util.StringConverter;
 
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class WorkoutsController implements Initializable{
 
@@ -47,6 +49,8 @@ public class WorkoutsController implements Initializable{
     private ObservableList<regularExerciseInWorkoutModel> selectedRegularExerciseObservableList = FXCollections.observableArrayList();
     private ObservableList<exerciseInWorkoutModel> exerciseInWorkoutObservableList = FXCollections.observableArrayList();
     private ObservableList<String> timeObservableList = FXCollections.observableArrayList();
+
+    private ObservableList<exerciseGroupModel> exerciseGroupObservableList = FXCollections.observableArrayList();
 
 
     @FXML
@@ -101,6 +105,13 @@ public class WorkoutsController implements Initializable{
 
     private workoutModel selectedWorkout;
 
+    @FXML ComboBox<exerciseGroupModel> exerciseGroupsComboBox = new ComboBox<>();
+    @FXML ComboBox<exerciseGroupModel> exerciseRegularGroupsComboBox = new ComboBox<>();
+
+
+    @FXML Button showAllEquipmentExercises;
+    @FXML Button showAllRegularExercises;
+
 
     public void enterExistingWorkout(workoutModel workout) {
         workoutsTableView.setVisible(false);
@@ -128,6 +139,70 @@ public class WorkoutsController implements Initializable{
     }
 
     //-----------------------SelectedWorkout------------------------
+
+    public void showAllEquipmentExercisesButtonPressed(){
+        loadAllEquipmentExercisesFromDB();
+        addEquipmentSetsBox.setVisible(false);
+    }
+
+    public void showAllRegularExercisesButtonPressed(){
+        loadAllRegularExercisesFromDB();
+        addRegularSetsBox.setVisible(false);
+    }
+
+    public void equipmentGroupSelected(){
+        loadSelectedGroupEquipmentExercisesFromDB(exerciseGroupsComboBox.getValue().getExerciseGroupID());
+        addEquipmentSetsBox.setVisible(false);
+
+    }
+
+    public void regularGroupSelected(){
+        loadSelectedGroupRegularExercisesFromDB(exerciseRegularGroupsComboBox.getValue().getExerciseGroupID());
+        addRegularSetsBox.setVisible(false);
+
+    }
+
+
+    public void loadExerciseGroupsFromDB() {
+        try {
+            exerciseGroupsComboBox.getItems().clear();
+            exerciseRegularGroupsComboBox.getItems().clear();
+            Connection con = DBConnector.getConnection();
+
+            PreparedStatement q = con.prepareStatement("SELECT * FROM Exercise_Group");
+
+            ResultSet rs = q.executeQuery();
+            while (rs.next()){
+                exerciseGroupObservableList.add(new exerciseGroupModel(rs.getInt("groupID"), rs.getString("name")));
+            }
+            q.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        StringConverter<exerciseGroupModel> converter = new StringConverter<exerciseGroupModel>() {
+            @Override
+            public String toString(exerciseGroupModel object) {
+                return object.getExerciseGroupName();
+            }
+
+            @Override
+            public exerciseGroupModel fromString(String name) {
+                return exerciseGroupObservableList.stream()
+                        .filter(item -> item.getExerciseGroupName().equals(name))
+                        .collect(Collectors.toList()).get(0);
+            }
+        };
+
+        exerciseGroupsComboBox.setConverter(converter);
+        exerciseRegularGroupsComboBox.setConverter(converter);
+
+        exerciseGroupsComboBox.setItems(exerciseGroupObservableList);
+        exerciseRegularGroupsComboBox.setItems(exerciseGroupObservableList);
+    }
+
 
 
     public void fillTimeComboBox(){
@@ -633,6 +708,140 @@ public class WorkoutsController implements Initializable{
     }
 
 
+    public void loadSelectedGroupRegularExercisesFromDB(int selectedGroupID) {
+        //load regular exercises in the selected group
+        regularExerciseObservableList.clear();
+        try {
+            Connection con = DBConnector.getConnection();
+
+            PreparedStatement q = con.prepareStatement("SELECT *  from Exercise_In_Group natural join (Select exerciseID, name, description from Exercise natural join Regular_Exercise) as t1 where groupID = ?");
+            q.setInt(1, selectedGroupID);
+
+            ResultSet rs = q.executeQuery();
+            while (rs.next()) {
+                regularExerciseObservableList.add(new regularExerciseModel(rs.getInt("exerciseID"), rs.getString("name"), rs.getString("description")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        regularExerciseList.setCellFactory(param -> new ListCell<regularExerciseModel>() {
+            @Override
+            protected void updateItem(regularExerciseModel item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty || item == null || item.getClass() == null) {
+                    setText(null);
+                } else {
+                    setText(item.getName());
+                }
+            }
+        });
+
+        regularExerciseList.setItems(regularExerciseObservableList);
+
+    }
+
+    public void loadSelectedGroupEquipmentExercisesFromDB(int selectedGroupID) {
+        //load regular exercises in the selected group
+        equipmentExerciseObservableList.clear();
+        try {
+            Connection con = DBConnector.getConnection();
+
+            PreparedStatement q = con.prepareStatement("SELECT exerciseID, name, eqName, description  from Exercise_In_Group natural join (Select exerciseID, Exercise.name, Equipment.name as eqName, description  from Exercise natural join Equipment_Exercise  inner join Equipment where Equipment_Exercise.equipmentID = Equipment.equipmentID ) as t1 where groupID = ?;");
+            q.setInt(1, selectedGroupID);
+
+            ResultSet rs = q.executeQuery();
+            while (rs.next()) {
+                equipmentExerciseObservableList.add(new equipmentExerciseModel(rs.getInt("exerciseID"), rs.getString("name"), rs.getString("eqName"), rs.getString("description")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        equipmentExerciseList.setCellFactory(param -> new ListCell<equipmentExerciseModel>() {
+            @Override
+            protected void updateItem(equipmentExerciseModel item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty || item == null || item.getClass() == null) {
+                    setText(null);
+                } else {
+                    setText(item.getExercise_name());
+                }
+            }
+        });
+
+        equipmentExerciseList.setItems(equipmentExerciseObservableList);
+
+    }
+
+
+    public void loadAllRegularExercisesFromDB() {
+        //load list of regular exercises:
+        regularExerciseObservableList.clear();
+        try {
+            Connection con = DBConnector.getConnection();
+
+            ResultSet rs = con.createStatement().executeQuery("SELECT * from Exercise NATURAL JOIN Regular_Exercise;");
+            while (rs.next()) {
+                regularExerciseObservableList.add(new regularExerciseModel(rs.getInt("exerciseID"), rs.getString("name"), rs.getString("description")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        regularExerciseList.setCellFactory(param -> new ListCell<regularExerciseModel>() {
+            @Override
+            protected void updateItem(regularExerciseModel item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty || item == null || item.getClass() == null) {
+                    setText(null);
+                } else {
+                    setText(item.getName());
+                }
+            }
+        });
+
+        regularExerciseList.setItems(regularExerciseObservableList);
+
+    }
+
+    public void loadAllEquipmentExercisesFromDB() {
+        //load list of equipment exercises:
+        equipmentExerciseObservableList.clear();
+        try {
+            Connection con = DBConnector.getConnection();
+
+            ResultSet rs = con.createStatement().executeQuery("select t1.exerciseID, t1.name, Equipment.name, Equipment.description from Equipment join (Select * from Equipment_Exercise natural join Exercise) as t1 where Equipment.equipmentID = t1.equipmentID;");
+            while (rs.next()) {
+                equipmentExerciseObservableList.add(new equipmentExerciseModel(rs.getInt("t1.exerciseID"), rs.getString("t1.name"), rs.getString("Equipment.name"), rs.getString("Equipment.description")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        equipmentExerciseList.setCellFactory(param -> new ListCell<equipmentExerciseModel>() {
+            @Override
+            protected void updateItem(equipmentExerciseModel item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty || item == null || item.getClass() == null) {
+                    setText(null);
+                } else {
+                    setText(item.getExercise_name());
+                }
+            }
+        });
+
+        equipmentExerciseList.setItems(equipmentExerciseObservableList);
+
+
+
+    }
+
+
 
 
 
@@ -770,6 +979,10 @@ public class WorkoutsController implements Initializable{
         });
 
         regularExerciseList.setItems(regularExerciseObservableList);
+
+        loadAllEquipmentExercisesFromDB();
+        loadAllRegularExercisesFromDB();
+        loadExerciseGroupsFromDB();
 
     }
 
