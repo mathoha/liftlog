@@ -82,6 +82,9 @@ public class AppController implements Initializable{
         } catch (SQLException e) {
             e.printStackTrace();
             connectionCircle.setFill(Color.rgb(255,0,0));
+            connectionStatus.setTextFill(Color.rgb(255, 0, 0));
+            connectionStatus.setText("Connection failed");
+            connectionStatus.setVisible(true);
 
         }
 

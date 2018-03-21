@@ -706,7 +706,7 @@ public class PersonalRecordsController implements Initializable{
                         " where ExerciseID = ?) as t1  on t1.workoutID = Workout.workoutID \n" +
                         " where Workout.workout_date>=?\n" +
                         "AND Workout.workout_date <=?\n" +
-                        "order by workout_date desc, workout_time asc;");
+                        "order by workout_date asc, workout_time desc;");
                 q.setInt(1, exerciseComboBox.getValue().getExerciseID());
                 q.setString(2, fromDate.getValue().toString());
                 q.setString(3, toDate.getValue().toString());
@@ -752,9 +752,11 @@ public class PersonalRecordsController implements Initializable{
         oneRMChart.getData().clear();
 
         List<exercisePRModel> prList = PRObservableList.stream().collect(Collectors.toList());
-        Date prevDate = prList.get(0).getDate();
+
         ObservableList<exercisePRModel> sameWorkout = FXCollections.observableArrayList();
         ObservableList<exercisePRModel> prEachWorkout = FXCollections.observableArrayList();
+
+        Date prevDate = prList.get(0).getDate();
         for(int i = 0; i <prList.size(); i++){
 
             Date workoutDate = prList.get(i).getDate();
@@ -772,10 +774,10 @@ public class PersonalRecordsController implements Initializable{
                 sameWorkout.add(prList.get(i));
                 prevDate = prList.get(i).getDate();
             }
-
-
-
         }
+
+        //include the last workout in the set
+        prEachWorkout.add(sameWorkout.stream().max(Comparator.comparing(exercisePRModel::getOneRM)).get());
 
         XYChart.Series<String,Number> series = new XYChart.Series();
 

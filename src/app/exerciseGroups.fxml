@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ExerciseGroupsController">
+<BorderPane prefHeight="710.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ExerciseGroupsController">
    <center>
-      <VBox maxWidth="250.0" minWidth="150.0" prefHeight="600.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+      <VBox maxWidth="344.0" minWidth="344.0" prefHeight="600.0" prefWidth="344.0" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="exerciseGroupNameLabel" prefHeight="25.0" prefWidth="170.0" text="Back Exercises">
                <VBox.margin>
@@ -23,7 +23,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <ListView fx:id="exerciseInGroupList" editable="true" maxWidth="150.0" minWidth="115.0" prefHeight="200.0" prefWidth="115.0">
+            <ListView fx:id="exerciseInGroupList" editable="true" maxWidth="300.0" prefHeight="400.0" prefWidth="300.0">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -44,7 +44,7 @@
       </VBox>
    </center>
    <left>
-      <VBox prefHeight="600.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="710.0" prefWidth="452.0" BorderPane.alignment="CENTER">
          <children>
             <Label prefHeight="25.0" prefWidth="170.0" text="Exercise Groups">
                <VBox.margin>
@@ -54,7 +54,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <ListView fx:id="exerciseGroupList" editable="true" maxWidth="150.0" onEditStart="#exerciseGroupSelected" prefHeight="200.0" prefWidth="150.0">
+            <ListView fx:id="exerciseGroupList" editable="true" maxWidth="300.0" onEditStart="#exerciseGroupSelected" prefHeight="400.0" prefWidth="300.0">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -70,11 +70,8 @@
             </HBox>
          </children>
          <padding>
-            <Insets left="20.0" right="20.0" />
+            <Insets left="80.0" right="20.0" />
          </padding>
       </VBox>
    </left>
-   <right>
-      <VBox prefHeight="600.0" prefWidth="256.0" BorderPane.alignment="CENTER" />
-   </right>
 </BorderPane>
